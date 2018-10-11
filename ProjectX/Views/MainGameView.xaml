@@ -4,10 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectX.Views"
+             xmlns:m="clr-namespace:ProjectX.Models"
+             xmlns:local1="clr-namespace:ProjectX.ViewModels"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+             xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
-            Width="1366" Height="768">
+             Width="1366" Height="768">
+
+
+    <!--DataContext="{Binding RelativeSource = {RelativeSource Self}}">-->
+
 
     <Grid Background="Black">
+        
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -25,13 +34,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Foreground="White" Text="{Binding Path=Dice1.DiceValue, Mode=OneWay}" Grid.Row="1" ></TextBlock>
-        <TextBlock Text="{Binding Path=Dice2.DiceValue, Mode=OneWay}" Grid.Row="1" ></TextBlock>
-        <TextBlock Text="{Binding Path=Dice3.DiceValue, Mode=OneWay}" Grid.Row="1"></TextBlock>
-        <TextBlock Text="{Binding Path=Dice4.DiceValue, Mode=OneWay}" Grid.Row="1"></TextBlock>
-        <TextBlock Text="{Binding Path=Dice5.DiceValue, Mode=OneWay}" Grid.Row="1"></TextBlock>
+        <TextBlock  Text="{Binding Path=gameSet._gameName, Mode=TwoWay}" Foreground="White" Grid.Column="2" Grid.Row="4" ></TextBlock>
+        <TextBlock Foreground="White" Grid.Row="3" Text="{Binding Path=gameSet_gameName, Mode=OneWay}"></TextBlock>
+        <TextBlock Text="{Binding Path=gameSet.Started_At, Mode=TwoWay}" Grid.Row="4"></TextBlock> 
+        <TextBlock Text="{Binding Path=gameSet.DicePanel.Dice1.DiceValue, Mode=TwoWay}" Grid.Row="1"></TextBlock>
 
-        <Button x:Name="Rolldice" Background="Green" Margin="50" >Roll Dices!</Button>
+        <TextBlock Text="{Binding Path=gameSet._started_At, Mode=TwoWay}" Foreground="White" Grid.Row="3"></TextBlock>
+
+        <Button x:Name="Rolldice" Background="Green" Margin="50" Click="Rolldice_Click" >Roll Dices!</Button>
+
+        <Button x:Name="Enable"  Grid.Column="3" Background="Green" Margin="50" >Enable!</Button>
 
 
 

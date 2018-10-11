@@ -1,4 +1,5 @@
-﻿using ProjectX.ViewModels;
+﻿using ProjectX.Models;
+using ProjectX.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,19 +21,30 @@ namespace ProjectX.Views
     /// Interaction logic for MainGameView.xaml
     /// </summary>
     public partial class MainGameView : UserControl
-    {
-        private Dice Dice1;
-        private Dice Dice2;
-        private Dice Dice3;
-        private Dice Dice4;
-        private Dice Dice5;
-        Random Randomator = new Random();
 
+    {
+        GameSetEngine gameSet = new GameSetEngine();
+       
+        Random r = new Random();
         public MainGameView()
         {
             InitializeComponent();
+       
+
         }
 
+        private void Rolldice_Click(object sender, RoutedEventArgs e)
+        {
+            Dice dice1 = new Dice();
+            int value;
+            value = r.Next(1, 7);
+            dice1.DiceValue = value;
+            gameSet.DicePanel.Dice1.DiceValue = value;
+            gameSet._gameName = "Fuck";
+            DateTime today = DateTime.Today;
+            gameSet.Started_At = today;
 
+          
+        }
     }
 }

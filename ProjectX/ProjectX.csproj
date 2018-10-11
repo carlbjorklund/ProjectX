@@ -72,6 +72,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Dice.cs" />
+    <Compile Include="Models\DicePanel.cs" />
+    <Compile Include="Models\GameSetEngine.cs" />
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\ScoreCard.cs" />
     <Compile Include="ViewModels\MainGameViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ShellView.xaml.cs">
